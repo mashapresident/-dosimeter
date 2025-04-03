@@ -1,22 +1,20 @@
-//
-// Created by Maria Konovalova on 03.04.2025.
-//
-
 #ifndef DOSIMETER_20_H
 #define DOSIMETER_20_H
+#include <iostream>
 
 class dosimeter_20{
     public:
       dosimeter_20(int pin);
+      timer counter(int *period = &_pin);
       void begin();
-      void calibate();
       void read_radiation();
+      float calculate_radiation();
+      void calculate_multitran();
     private:
+      float radiation_array[60];
       float SENS;
-      int pin;
-      int period;
+      int _pin;
+      int period = 60;
 };
 
-
-
-#endif //DOSIMETER_20_H
+#endif
